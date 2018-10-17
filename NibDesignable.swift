@@ -77,9 +77,6 @@ extension NibDesignableProtocol {
 }
 
 extension UIView {
-    public var nibContainerView: UIView {
-        return self
-    }
     /**
      Called in the default implementation of loadNib(). Default is class name.
 
@@ -93,6 +90,10 @@ extension UIView {
 @IBDesignable
 open class NibDesignable: UIView, NibDesignableProtocol {
 
+    public var nibContainerView: UIView {
+        return self
+    }
+    
     // MARK: - Initializer
     override public init(frame: CGRect) {
         super.init(frame: frame)
@@ -108,7 +109,7 @@ open class NibDesignable: UIView, NibDesignableProtocol {
 
 @IBDesignable
 open class NibDesignableTableViewCell: UITableViewCell, NibDesignableProtocol {
-    public override var nibContainerView: UIView {
+    public var nibContainerView: UIView {
         return self.contentView
     }
 
@@ -128,7 +129,7 @@ open class NibDesignableTableViewCell: UITableViewCell, NibDesignableProtocol {
 @IBDesignable
 open class NibDesignableTableViewHeaderFooterView: UITableViewHeaderFooterView, NibDesignableProtocol {
 
-	public override var nibContainerView: UIView {
+	public var nibContainerView: UIView {
 			return self.contentView
 	}
 
@@ -147,7 +148,10 @@ open class NibDesignableTableViewHeaderFooterView: UITableViewHeaderFooterView, 
 
 @IBDesignable
 open class NibDesignableControl: UIControl, NibDesignableProtocol {
-
+    public var nibContainerView: UIView {
+        return self
+    }
+    
     // MARK: - Initializer
     override public init(frame: CGRect) {
         super.init(frame: frame)
@@ -163,7 +167,10 @@ open class NibDesignableControl: UIControl, NibDesignableProtocol {
 
 @IBDesignable
 open class NibDesignableCollectionReusableView: UICollectionReusableView, NibDesignableProtocol {
-
+    public var nibContainerView: UIView {
+        return self
+    }
+    
     // MARK: - Initializer
     override public init(frame: CGRect) {
         super.init(frame: frame)
@@ -179,7 +186,7 @@ open class NibDesignableCollectionReusableView: UICollectionReusableView, NibDes
 
 @IBDesignable
 open class NibDesignableCollectionViewCell: UICollectionViewCell, NibDesignableProtocol {
-    public override var nibContainerView: UIView {
+    public var nibContainerView: UIView {
         return self.contentView
     }
 
